@@ -8,25 +8,33 @@ public class Email {
   private String lastName;
   private String password;
   private String department;
+  private String email;
   private String alternateEmail;
   private int mailboxCapacity;
   private int defaultPasswordLength = 10;
+  private String companySuffix = "acme.com";
 
   //Constructor ot receive first name last name.
   Email(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
+    System.out.println("Create an account for " + firstName + " " + lastName);
 
     this.department = setDepartment();
     System.out.println("Department is " + this.department);
 
+    this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
+    System.out.println("Your email address is " + email);
+
     this.password = randomPassword(defaultPasswordLength);
     System.out.println("Your password is " + this.password);
+
+
   }
 
   //ask for department
   private String setDepartment() {
-    System.out.print("Departments:\n1 Sales\n2 Marketing\n3 Accounting \n0 None\nEnter department:");
+    System.out.print("Departments:\n1 Sales\n2 Marketing\n3 Accounting \n0 No department declared\nEnter department: ");
     Scanner in = new Scanner(System.in);
     int departmentChoice = in.nextInt();
     if (departmentChoice == 1) {
