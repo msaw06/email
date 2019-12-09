@@ -29,8 +29,6 @@ public class Email {
 
     this.password = randomPassword(defaultPasswordLength);
     //System.out.println("Your password is " + this.password);
-
-
   }
 
   //ask for department
@@ -48,7 +46,6 @@ public class Email {
       return "";
     }
   }
-
 
   //Generate password
   private String randomPassword(int length) {

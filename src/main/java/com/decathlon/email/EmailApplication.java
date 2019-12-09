@@ -8,5 +8,4 @@ public class EmailApplication {
     Email email1 = new Email("Matthew", "Saw");
     System.out.println(email1.showInfo());
   }
-
 }
