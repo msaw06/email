@@ -10,7 +10,7 @@ public class Email {
   private String department;
   private String email;
   private String alternateEmail;
-  private int mailboxCapacity;
+  private int mailboxCapacity = 500;
   private int defaultPasswordLength = 10;
   private String companySuffix = "acme.com";
 
@@ -21,13 +21,14 @@ public class Email {
     System.out.println("Create an account for " + firstName + " " + lastName);
 
     this.department = setDepartment();
-    System.out.println("Department is " + this.department);
+    //System.out.println("Department is " + this.department);
 
-    this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
-    System.out.println("Your email address is " + email);
+    this.email =
+        firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
+    //System.out.println("Your email address is " + email);
 
     this.password = randomPassword(defaultPasswordLength);
-    System.out.println("Your password is " + this.password);
+    //System.out.println("Your password is " + this.password);
 
 
   }
@@ -59,9 +60,39 @@ public class Email {
     }
     return new String(password);
   }
-//Set mailbox capacity
 
-//Set alternate email address
+  //Set mailbox capacity
+  public void setEmailCapacity(int capacity) {
+    this.mailboxCapacity = capacity;
+  }
 
-//Change password
+  //Set alternate email address
+  public void setAlternateEmail(String alternate) {
+    this.alternateEmail = alternate;
+  }
+
+  //Change password
+  public void changePassword(String password) {
+    this.password = password;
+  }
+
+  public int getMailboxCapacity() {
+    return mailboxCapacity;
+  }
+
+  public String getAlternateEmail() {
+    return alternateEmail;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public String showInfo() {
+    return
+        "\nDISPLAY NAME: " + firstName + " " + lastName +
+            "\nEMAIL ADDRESS: " + email +
+            "\nINITIAL PASSWORD: " + password +
+            "\nMailbox capacity: " + mailboxCapacity + " mb";
+  }
 }

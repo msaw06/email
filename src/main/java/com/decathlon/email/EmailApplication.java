@@ -6,6 +6,7 @@ public class EmailApplication {
 
     //SpringApplication.run(EmailApplication.class, args);
     Email email1 = new Email("Matthew", "Saw");
+    System.out.println(email1.showInfo());
   }
 
 }
